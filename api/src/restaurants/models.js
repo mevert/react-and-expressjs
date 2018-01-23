@@ -11,7 +11,7 @@ const {
 const byTime = ascend(prop('value'))
 
 const getRestaurantOpeningHours = (days = openingHoursData) => (
-  // convert opening hours data to format that is easier present in UI
+  // convert opening hours data to format that is easier to present in the UI
   Object.keys(days).map(day => {
     if (days[day].length) {
       // make sure that times are in correct order by sorting them first

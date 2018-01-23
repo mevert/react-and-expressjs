@@ -1,4 +1,4 @@
-# Express API and React frontend
+# Express.js API and React frontend
 This example project presents a way to use Express.js and React.
 
 ## Technologies and useful librarires ##
