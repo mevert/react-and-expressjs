@@ -15,7 +15,7 @@ const getRestaurantOpeningHours = (days = openingHoursData) => (
   Object.keys(days).map(day => {
     if (days[day].length) {
       // make sure that times are in correct order by sorting them first
-      const times = sort(byTime, days[day])
+      const open = sort(byTime, days[day])
         .map((time, i) => getDateString(isOdd(i), getDateFromUnixTime(time.value)))
         .reduce((acc, curr, i, arr) => {
           if (isEven(i)) {
@@ -23,7 +23,7 @@ const getRestaurantOpeningHours = (days = openingHoursData) => (
           }
           return acc
         }, [])
-      return { day, open: times }
+      return { day, open }
     }
     return { day, open: [] }
   })

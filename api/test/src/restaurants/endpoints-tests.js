@@ -28,7 +28,6 @@ describe('src.restaurants.endpoints', () => {
 
   describe('GET /restaurants/:restaurantId/hours', () => {
     const endpoint = `${RESTAURANTS_API_URL}/${uuid()}/hours`
-    console.log(endpoint)
     it('should return restaurant hours for restaurant', async () => {
       const resp = await superagent.get(endpoint)
       expect(resp.status).to.equal(status.OK)
