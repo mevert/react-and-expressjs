@@ -1,7 +1,7 @@
 # Express.js API and React frontend
 This example project presents a way to use Express.js and React.
 
-## Technologies and useful librarires ##
+## Technologies and useful libraries ##
 API
 - Express.js
 - Mocha, Chai

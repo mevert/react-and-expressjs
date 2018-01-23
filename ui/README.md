@@ -4,6 +4,6 @@
 ## Development ##
 - `npm i` to install packages 
 - `npm start` to run application in http://localhost:3000/
-- `npm test` to tests
+- `npm test` to run tests
 - `npm run lint` to run eslint, `npm run lint:fix` try fixing problems.
 - `npm run build` build application
