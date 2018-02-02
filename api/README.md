@@ -1,5 +1,5 @@
 # Express.js API
-This example project demonstrates a way to build modern REST API with Express.js. The project includes also some example tests.
+This is an example boilerplate that can be used to build modern REST API with Express.js.
 
 ## Development ##
 - `npm i` install packages
@@ -9,7 +9,10 @@ This example project demonstrates a way to build modern REST API with Express.js
 - `npm run start:dev` to run server in watch mode with nodemon
 - `npm run lint` to run eslin
 
-## REST Endpoints ##
-- Resturant opening hours
-  - `GET` http://localhost:3001/api/restaurants/:restaurantId/hours
-    - In this example API restaurantId can be a random string
+## Database ##
+- `docker run --name test -p 27017:27017 -d mongo` docker command to run mongodb
+
+## TODO / checklist ##
+- validation/serialization for models.js
+- add tests for endpoints
+- custon error messages for client

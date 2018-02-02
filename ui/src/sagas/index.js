@@ -1,5 +1,5 @@
-import restaurantSagas from './restaurant'
+import tasksSagas from './tasks'
 
 export default [
-  ...restaurantSagas
+  ...tasksSagas
 ]

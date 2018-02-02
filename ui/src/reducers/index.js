@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import restaurant from './restaurant'
+import tasks from './tasks'
 
 const rootReducer = combineReducers({
-  restaurant
+  tasks
 })
 
 export default rootReducer

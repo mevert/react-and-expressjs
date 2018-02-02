@@ -21,8 +21,11 @@ const stop = async () => {
   if (httpServer && httpServer.listening) {
     await new Promise((resolve, reject) => {
       httpServer.close(err => {
-        if (err) reject(err)
-        else resolve()
+        if (err) {
+          reject(err)
+        } else {
+          resolve()
+        }
       })
     })
   }
