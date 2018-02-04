@@ -1,17 +1,21 @@
+const bodyParser = require('body-parser')
 const configService = require('./src/services/config')
+const dbService = require('./src/services/db')
 const httpService = require('./src/services/http')
-const restaurantsEndpoints = require('./src/restaurants/endpoints')
+const tasksEndpoints = require('./src/tasks/endpoints')
 
 const start = async () => {
   // start all services
   await configService.start()
+  await dbService.start()
   await httpService.start()
 
   // define routes for router
   const router = httpService.getRouter()
-  restaurantsEndpoints.defineRoutes(router)
+  tasksEndpoints.defineRoutes(router)
 
   // use the defined router
+  httpService.getApp().use(bodyParser.json())
   httpService.getApp().use('/api', router)
 
   // use error-handling middleware
@@ -21,11 +25,14 @@ const start = async () => {
   })
 }
 
-start()
-  .then(() => {
+const runServer = async () => {
+  try {
+    await start()
     console.log(`server started on port ${configService.get('http').port}`)
-  })
-  .catch(err => {
-    console.error(err)
+  } catch (error) {
+    console.error(error)
     process.exit(1)
-  })
+  }
+}
+
+runServer()

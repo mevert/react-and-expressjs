@@ -1,10 +1,14 @@
 import config from '../../config'
 
-const { restaurantsApi } = config
+const { tasksApi } = config
 
-const getRestaurantOpeningHours = restaurantId =>
-  `${restaurantsApi}/restaurants/${restaurantId}/hours`
+const getTasks = () =>
+  `${tasksApi}/tasks`
+
+const getTask = taskId =>
+  `${tasksApi}/tasks/${taskId}`
 
 export default {
-  getRestaurantOpeningHours
+  getTasks,
+  getTask
 }

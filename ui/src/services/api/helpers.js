@@ -1,15 +1,13 @@
 const readResponse = async resp => {
-  let json
-  try {
+  let json = {}
+  const contentType = resp.headers.get('content-type')
+  if (contentType && contentType.indexOf('application/json') !== -1) {
     json = await resp.json()
-  } catch (error) {
-    throw new Error('Make sure that API is running and returns json response.')
   }
   if (resp.ok) {
     return json
   }
-  // custom error message coming from API
-  throw new Error(json.errorMessage)
+  throw new Error('Todo: handle custom errors that are coming from API')
 }
 
 export {

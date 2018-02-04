@@ -15,10 +15,11 @@ Linting
 - ESLint
 
 ## Prerequisites ##
-- Make sure that you have Node.js installed on your system. Apps are tested with Node.js v8.7.0.
+- Make sure that you have Node.js and Docker installed on your system. Apps are tested with Node.js v8.7.0.
 
 ## Brief instructions to run API and UI ##
 - Express API (see "api" folder)
+  - `docker run --name testdb -p 27017:27017 -d mongo` to run mongodb
   - `npm i` install packages
   - `npm start` to run API in http://localhost:3001
 - React frontend (see "ui" folder)

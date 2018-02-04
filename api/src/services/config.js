@@ -4,7 +4,9 @@ let config = null
 
 const start = async () => {
   if (process.env.NODE_ENV === 'development') {
-    require('dotenv').load()
+    require('dotenv').config()
+  } else if (process.env.NODE_ENV === 'test') {
+    require('dotenv').config({path: '.env.test'})
   }
   config = convict({
     http: {
@@ -13,6 +15,20 @@ const start = async () => {
         format: 'port',
         env: 'API_HTTP_PORT',
         default: 3001
+      }
+    },
+    db: {
+      name: {
+        doc: 'Database name',
+        format: String,
+        env: 'DB_NAME',
+        default: 'testdb'
+      },
+      url: {
+        doc: 'Database url',
+        format: String,
+        env: 'DB_URL',
+        default: 'mongodb://localhost:27017'
       }
     }
   })
