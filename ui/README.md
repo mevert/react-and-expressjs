@@ -7,3 +7,6 @@
 - `npm test` to run tests
 - `npm run lint` to run eslint, `npm run lint:fix` try fixing problems.
 - `npm run build` build application
+
+## TODO / checklist ##
+- Handle failed API requests

@@ -1,7 +1,6 @@
 import { handleActions } from 'redux-actions'
 import {
   getTasksSuccess,
-  getTasksFail,
   createTaskSuccess,
   toggleTaskSuccess,
   deleteTaskSuccess
@@ -17,14 +16,6 @@ const restaurant = handleActions({
       return {
         ...state,
         tasks
-      }
-    }
-  },
-  [getTasksFail]: {
-    next (state, { payload }) {
-      return {
-        ...state,
-        errorMessage: payload
       }
     }
   },

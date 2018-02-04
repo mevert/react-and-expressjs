@@ -15,7 +15,7 @@ import {
   toggleTask,
   deleteTask
 } from '../../actions/tasks'
-import { selectTasks, selectErrorMessage } from '../../selectors/tasks'
+import { selectTasks } from '../../selectors/tasks'
 
 const containerStyle = {
   textAlign: 'center',
@@ -136,8 +136,7 @@ class Tasks extends Component {
 
 const mapStateToProps = state => {
   return {
-    tasks: selectTasks(state),
-    errorMessage: selectErrorMessage(state)
+    tasks: selectTasks(state)
   }
 }
 

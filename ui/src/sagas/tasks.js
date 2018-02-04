@@ -46,7 +46,7 @@ export function * handleToggleTask ({ payload: _id }) {
       completed: !task.completed
     }
     yield call(Api.updateTask, _id, taskData)
-    yield put(toggleTaskSuccess({_id, completed: taskData.completed}))
+    yield put(toggleTaskSuccess({ _id, completed: taskData.completed }))
   } catch (error) {
     yield put(toggleTaskFail())
   }
