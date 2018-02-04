@@ -1,5 +1,5 @@
 # React UI
-[React](https://github.com/facebook/react) and [Redux-saga](https://github.com/redux-saga/redux-saga) powered frontend boilerplate that can be used to fetch data from API.
+[React](https://github.com/facebook/react) and [Redux-saga](https://github.com/redux-saga/redux-saga) powered front-end boilerplate that can be used to fetch data from API.
 
 ## Development ##
 - `npm i` to install packages 

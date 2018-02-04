@@ -7,7 +7,7 @@ const ROOT_URL = '/tasks'
 const postTask = asyncMiddleware(async (req, res) => {
   try {
     const task = await models.createNewTask(req.body)
-    res.status(status.OK).json(task)
+    res.status(status.CREATED).json(task)
   } catch (err) {
     throw err
   }

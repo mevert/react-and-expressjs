@@ -10,9 +10,8 @@ This is an example boilerplate that can be used to build modern REST API with Ex
 - `npm run lint` to run eslin
 
 ## Database ##
-- `docker run --name test -p 27017:27017 -d mongo` docker command to run mongodb
+- `docker run --name testdb -p 27017:27017 -d mongo` docker command to run mongodb
 
 ## TODO / checklist ##
 - validation/serialization for models.js
-- add tests for endpoints
-- custon error messages for client
+- custom error messages for client

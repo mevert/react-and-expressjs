@@ -30,21 +30,24 @@ describe('src.tasks.models', () => {
   describe('updateTask', () => {
     it('should update task in database', async () => {
       await models.createNewTask(exampleTask)
-      const updatedTask = {
-        _id: exampleTask._id,
-        name: 'yo',
+      const taskData = {
         completed: true
       }
-      const result = await models.updateTask(updatedTask)
-      expect(result.modifiedCount).to.equal(1)
+      await models.updateTask(exampleTask._id, taskData)
+      const task = await models.getTask(exampleTask._id)
+      expect(task).to.deep.equal({
+        ...exampleTask,
+        ...taskData
+      })
     })
   })
 
   describe('deleteTask', () => {
     it('should delete task from database', async () => {
       await models.createNewTask(exampleTask)
-      const result = await models.deleteTask(exampleTask._id)
-      expect(result.deletedCount).to.equal(1)
+      await models.deleteTask(exampleTask._id)
+      const task = await models.getTask(exampleTask._id)
+      expect(task).to.equal(null)
     })
   })
 

@@ -22,7 +22,7 @@ const start = async () => {
         doc: 'Database name',
         format: String,
         env: 'DB_NAME',
-        default: 'test'
+        default: 'testdb'
       },
       url: {
         doc: 'Database url',

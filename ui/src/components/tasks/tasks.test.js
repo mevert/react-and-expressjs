@@ -1,10 +1,25 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
-import OpeningHours from './openingHours'
+import Tasks from './tasks'
 
 const exampleState = {
-
+  tasks: {
+    tasks: [
+      {
+        _id: 'testid',
+        name: 'example task name',
+        date: new Date('2017-12-17T03:24:00'),
+        completed: false
+      },
+      {
+        _id: 'testid2',
+        name: 'example task name 2',
+        date: new Date('2017-12-20T03:24:00'),
+        completed: true
+      }
+    ]
+  }
 }
 
 const shallowWithStore = (component, store) => {
@@ -12,19 +27,15 @@ const shallowWithStore = (component, store) => {
   return shallow(component, { context })
 }
 
-describe('<OpeningHours />', () => {
+describe('<Tasks />', () => {
   const mockStore = configureStore()
 
-  it('should render component with opening hours', () => {
+  it('should render component with some tasks', () => {
     const store = mockStore(exampleState)
-    const component = shallowWithStore(<OpeningHours />, store)
-    expect(component.dive().find('[data-test="monday-0"]').text()).toBe('Closed')
-    expect(component.dive().find('[data-test="tuesday-0"]').text()).toBe('10:00 am - 6:00 pm')
-    expect(component.dive().find('[data-test="wednesday-0"]').text()).toBe('Closed')
-    expect(component.dive().find('[data-test="thursday-0"]').text()).toBe('10:00 am - 6:00 pm')
-    expect(component.dive().find('[data-test="thursday-1"]').text()).toBe('7:00 pm - 8:00 pm')
-    expect(component.dive().find('[data-test="friday-0"]').text()).toBe('Closed')
-    expect(component.dive().find('[data-test="saturday-0"]').text()).toBe('10:00 am - 8:00 pm')
-    expect(component.dive().find('[data-test="sunday-0"]').text()).toBe('12:00 pm - 9:00 pm')
+    const component = shallowWithStore(<Tasks />, store)
+    expect(component.dive().find('[data-test="testid-name"]').dive().dive().text()).toBe('example task name')
+    expect(component.dive().find('[data-test="testid-date"]').dive().dive().text()).toBe('Sun Dec 17 2017 03:24:00')
+    expect(component.dive().find('[data-test="testid2-name"]').dive().dive().text()).toBe('example task name 2')
+    expect(component.dive().find('[data-test="testid2-date"]').dive().dive().text()).toBe('Wed Dec 20 2017 03:24:00')
   })
 })

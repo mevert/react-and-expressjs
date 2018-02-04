@@ -6,6 +6,7 @@ import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Ta
 import IconButton from 'material-ui/IconButton'
 import Checkbox from 'material-ui/Checkbox'
 import DeleteIcon from 'material-ui-icons/Delete'
+import Typography from 'material-ui/Typography'
 import dateFormat from 'dateformat'
 
 import {
@@ -82,8 +83,8 @@ class Tasks extends Component {
                 checked={isSelected}
               />
             </TableCell>
-            <TableCell style={cellStyle}>{task.name}</TableCell>
-            <TableCell style={cellStyle}>{dateFormat(task.date)}</TableCell>
+            <TableCell data-test={`${task._id}-name`} style={cellStyle}>{task.name}</TableCell>
+            <TableCell data-test={`${task._id}-date`} style={cellStyle}>{dateFormat(task.date)}</TableCell>
             <TableCell numeric>
               <IconButton
                 onClick={() => this.props.deleteTask(task._id)}
@@ -103,6 +104,9 @@ class Tasks extends Component {
     const { taskText } = this.state
     return (
       <div style={containerStyle}>
+        <Typography type='display1' gutterBottom>
+          Tasks
+        </Typography>
         <TextField
           placeholder='What needs to be done? (press Enter to add new task)'
           margin='normal'
@@ -117,6 +121,7 @@ class Tasks extends Component {
               <TableCell>Completed</TableCell>
               <TableCell>Task</TableCell>
               <TableCell>Date </TableCell>
+              <TableCell />
             </TableRow>
           </TableHead>
           <TableBody>

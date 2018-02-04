@@ -44,10 +44,17 @@ const getTasks = async () => {
   return tasks
 }
 
+const getTask = async (_id) => {
+  const collection = getDbCollection(collectionName)
+  const task = await collection.findOne({_id: ObjectID(_id)})
+  return task
+}
+
 module.exports = {
   createNewTask,
   createMultipleTasks,
   updateTask,
   deleteTask,
-  getTasks
+  getTasks,
+  getTask
 }
